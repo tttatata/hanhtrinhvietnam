@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dwlakacd33xgf"]
+
+[ext_resource type="Script" uid="uid://bfn458albif3j" path="res://player.gd" id="1_pylmc"]
+[ext_resource type="Texture2D" uid="uid://iew6ap4nemm2" path="res://Assets/characters/male3/Artboard 2@0.33x.png" id="3_606se"]
+[ext_resource type="Texture2D" uid="uid://bpwx5ch4mkboh" path="res://Assets/characters/male3/Artboard 3@0.33x.png" id="5_op7ga"]
+[ext_resource type="Texture2D" uid="uid://cfy7t5g3k6gcm" path="res://Assets/characters/male3/anh/Artboard 20@0.33x.png" id="6_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://btoueniophc48" path="res://Assets/characters/male3/Artboard 5@0.33x.png" id="6_q13i1"]
+[ext_resource type="Texture2D" uid="uid://mbd7ela2sjdg" path="res://Assets/characters/male3/anh/Artboard 22@0.33x.png" id="7_nvl01"]
+[ext_resource type="Texture2D" uid="uid://dmfiis3pud6cc" path="res://Assets/characters/male3/Artboard 4@0.33x.png" id="7_pylmc"]
+[ext_resource type="Texture2D" uid="uid://naj3sb8qucqu" path="res://Assets/characters/male3/anh/Artboard 23@0.33x.png" id="8_ivps1"]
+[ext_resource type="Texture2D" uid="uid://csa3w3e03x4sd" path="res://Assets/characters/male3/Artboard 8@0.33x.png" id="9_5tmop"]
+[ext_resource type="Texture2D" uid="uid://by8ncqm2o48e4" path="res://Assets/characters/male3/anh/Artboard 24@0.33x.png" id="9_urp6f"]
+[ext_resource type="Texture2D" uid="uid://cbfc2p7hwosqw" path="res://Assets/characters/male3/Artboard 9@0.33x.png" id="10_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://4q5ep0sugj67" path="res://Assets/characters/male3/anh/Artboard 25@0.33x.png" id="10_bwjto"]
+[ext_resource type="Texture2D" uid="uid://d3jrel6s63v0v" path="res://Assets/characters/male3/Artboard 10@0.33x.png" id="11_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://dmg1t3rsu2nnt" path="res://Assets/characters/male3/Artboard 11@0.33x.png" id="12_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://g2jgg4xaeto2" path="res://Assets/characters/male3/Artboard 12@0.33x.png" id="13_jm5j8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_606se"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q13i1")
+}],
+"loop": true,
+"name": &"idle_south",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bwjto")
+}],
+"loop": false,
+"name": &"run_south",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jm5j8")
+}],
+"loop": true,
+"name": &"walk_south",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pylmc"]
+radius = 25.0
+height = 50.0
+
+[node name="Player" type="CharacterBody2D" unique_id=163863735]
+position = Vector2(97, 334)
+script = ExtResource("1_pylmc")
+metadata/_edit_vertical_guides_ = [125.0]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1643863202]
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 1500
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1761074927]
+position = Vector2(15, 185)
+sprite_frames = SubResource("SpriteFrames_606se")
+animation = &"walk_south"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=1333845189]
+position = Vector2(0, 60)
+shape = SubResource("CapsuleShape2D_pylmc")
